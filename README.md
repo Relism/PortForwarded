@@ -1,7 +1,7 @@
 
 # PortForwarded
 
-![Banner Image](<banner_image_url>)
+![Banner Image](https://raw.githubusercontent.com/Relism/PortForwarded/master/pfbannertop.png)
 
 PortForwarded is a Serverside Fabric Mod that enables you to securely expose your Minecraft server to the internet without the need to open your router's ports, using Ngrok v3. This means that your players won't need to install the mod themselves. With PortForwarded, you can easily and securely share your server with friends and players from around the world, without the hassle of configuring port forwarding on your router.
 

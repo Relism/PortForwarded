@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "portforwarded",
+  "version": "${version}",
+  "name": "PortForwarded",
+  "description": "Bypasses the need to port forward by opening a TCP tunnel over Ngrok",
+  "authors": [
+    "Relism"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/PortForwarded/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "client": [
+      "dev.relism.portforwarded.client.PortForwardedClient"
+    ],
+    "main": [
+      "dev.relism.portforwarded.PortForwarded"
+    ]
+  },
+  "mixins": [
+    "PortForwarded.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.10",
+    "fabric": "*",
+    "minecraft": "1.20.4"
+  }
+}

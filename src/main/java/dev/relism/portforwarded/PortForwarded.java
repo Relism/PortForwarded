@@ -48,8 +48,9 @@ public class PortForwarded implements ModInitializer {
 
                     Tunnel minecraftTunnel = NgrokHelper.createTunnel(Proto.TCP, server.getServerPort());
                     String tunnelUrl = minecraftTunnel.getPublicUrl().replaceFirst("^tcp://", "");
+                    msg.log("==[PortForwarded]=========================================");
+                    msg.log("Forwarded Port: " + server.getServerPort());
                     msg.log("Tunnel Running on URL: " + tunnelUrl);
-
                     if(!discordWebhook.isEmpty()){
                         DiscordWebhooksUtil.sendEmbed(discordWebhook, "New Server URL", "The Minecraft server has started on the following URL: " + tunnelUrl, 0xB4D3B2);
                     }

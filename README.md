@@ -1,8 +1,10 @@
 # PortForwarded
+![Modrinth Shield](https://img.shields.io/modrinth/dt/WNiQAmtw?style=for-the-badge&logo=modrinth&color=00AF5C)
+![Github Shield](https://img.shields.io/badge/Source_code-Available-src?style=for-the-badge&color=00AF5C&logo=github&label=Source%20code&link=https%3A%2F%2Fgithub.com%2FRelism%2FPortForwarded)
 
 ![Banner Image](https://raw.githubusercontent.com/Relism/PortForwarded/master/pfbannertop.png)
 
-**PortForwarded** is a _server-side_ fabric mod that allows you to securely expose your Minecraft server to the internet using Ngrok v3 **without opening your router's ports**. With **PortForwarded** you can easily and securely **share your server with friends and players around the world** without the hassle of configuring port forwarding on your router. 
+**PortForwarded** is a _server-side_ fabric mod that allows you to securely expose your Minecraft server to the internet using Ngrok v3 **without opening your router's ports**. With **PortForwarded** you can easily and securely **share your server with friends and players around the world** without the hassle of configuring port forwarding on your router.
 
 **Note:** Your players don't need to install the mod themselves!
 

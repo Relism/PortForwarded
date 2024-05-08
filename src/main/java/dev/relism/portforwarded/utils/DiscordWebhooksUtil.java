@@ -9,6 +9,7 @@ public class DiscordWebhooksUtil {
 
     public static void sendEmbed(String webhookUrl, String title, String description, int color) {
         try {
+            msg.log("Sending webhook message");
             URL url = new URL(webhookUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
@@ -29,6 +30,9 @@ public class DiscordWebhooksUtil {
                 byte[] input = requestBody.getBytes("utf-8");
                 outputStream.write(input, 0, input.length);
             }
+
+            connection.getResponseCode();
+            connection.getResponseMessage();
 
             connection.disconnect();
         } catch (IOException e) {

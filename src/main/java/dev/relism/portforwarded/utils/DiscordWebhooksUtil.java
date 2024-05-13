@@ -5,8 +5,19 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Utility class for sending embeds to Discord via webhooks.
+ */
 public class DiscordWebhooksUtil {
 
+    /**
+     * Sends an embed to a Discord channel via a webhook.
+     *
+     * @param webhookUrl The URL of the Discord webhook.
+     * @param title The title of the embed.
+     * @param description The description of the embed.
+     * @param color The color of the embed, as an integer.
+     */
     public static void sendEmbed(String webhookUrl, String title, String description, int color) {
         try {
             URL url = new URL(webhookUrl);

@@ -49,6 +49,10 @@ public class ConfigUtil {
                 break;
             case RELATIVE:
                 if (myModId != null && !myModId.isEmpty()) {
+                    File configDir = new File(System.getProperty("user.dir"), "config" + File.separator + myModId);
+                    if(!configDir.exists()) {
+                        configDir.mkdirs();
+                    }
                     configFile = new File(System.getProperty("user.dir"), "config" + File.separator + myModId + File.separator + path);
                 } else {
                     msg.log("Mod ID is null, please set the mod ID before calling getConfig()");

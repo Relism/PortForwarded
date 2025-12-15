@@ -1,0 +1,31 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url 'https://maven.fabricmc.net/' }
+        maven { url 'https://maven.minecraftforge.net/' }
+        maven { url 'https://repo.spongepowered.org/maven' }
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabricmc.net/' }
+        maven { url 'https://maven.minecraftforge.net/' }
+        maven { url 'https://repo.spongepowered.org/maven' }
+        maven { url 'https://repo.papermc.io/repository/maven-public/' }
+        maven {
+            name "reposiliteRepositorySnapshots"
+            url "https://maven.relism.dev/snapshots"
+        }
+    }
+}
+
+rootProject.name = 'PortForwarded'
+include(
+        'portforwarded-common',
+        'portforwarded-bukkit',
+        'portforwarded-fabric',
+        'portforwarded-forge',
+        'portforwarded-sponge',
+)

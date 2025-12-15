@@ -1,0 +1,5 @@
+name: PortForwarded
+main: dev.relism.portforwarded.bukkit.PortForwardedBukkitPlugin
+version: ${version}
+api-version: 1.13
+description: Minimal PortForwarded Bukkit bootstrap.

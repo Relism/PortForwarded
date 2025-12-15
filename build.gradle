@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2' apply false
+    id 'fabric-loom' version "$fabric_loom_version" apply false
+}
+
+group = 'dev.relism.portforwarded'
+version = plugin_version
+description = plugin_description
+
+allprojects {
+    group = rootProject.group
+    version = rootProject.version
+
+    repositories {
+        mavenCentral()
+        maven {
+            name = "reposiliteRepositorySnapshots"
+            url = uri("https://maven.relism.dev/snapshots")
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+        withSourcesJar()
+    }
+
+    tasks.withType(Test).configureEach {
+        useJUnitPlatform()
+    }
+}
+
+tasks.register('universalJar', Jar) {
+    group = 'build'
+    description = 'Assembles a universal jar containing outputs from all platform modules.'
+    archiveClassifier.set('universal')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    subprojects.each { project ->
+        def sourceSets = project.extensions.findByName('sourceSets')
+        def shadowJarTask = project.tasks.findByName('shadowJar')
+
+        if (shadowJarTask != null) {
+            dependsOn(shadowJarTask)
+            from { project.zipTree(shadowJarTask.archiveFile.get()) }
+        } else if (sourceSets?.findByName('main') != null) {
+            def jarTask = project.tasks.findByName('jar')
+            if (jarTask != null) {
+                dependsOn(jarTask)
+                from(sourceSets.main.output)
+            }
+        }
+    }
+
+    doLast {
+        logger.lifecycle("Universal jar created at ${archiveFile.get().asFile}")
+    }
+}

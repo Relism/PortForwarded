@@ -1,0 +1,37 @@
+plugins {
+    id 'java-library'
+    id 'com.github.johnrengelman.shadow'
+}
+
+group = rootProject.group
+version = rootProject.version
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "reposiliteRepositorySnapshots"
+        url = uri("https://maven.relism.dev/snapshots")
+    }
+}
+
+dependencies {
+    implementation "dev.relism.portforwarded:portforwarded-gwts-client:0.1.0-SNAPSHOT"
+}
+
+java {
+    withSourcesJar()
+}
+
+tasks.shadowJar {
+    archiveClassifier.set('')
+}
+
+// Build the shaded jar so consumers get the GWTS classes bundled
+tasks.named('build') {
+    dependsOn tasks.shadowJar
+}
+
+// Replace the standard jar with the shaded one
+tasks.named('jar') {
+    enabled = false
+}

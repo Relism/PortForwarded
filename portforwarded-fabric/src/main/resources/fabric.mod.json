@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "portforwarded",
+  "version": "${version}",
+  "name": "PortForwarded",
+  "description": "Minimal PortForwarded Fabric bootstrap.",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.relism.portforwarded.fabric.PortForwardedFabricMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.12.0",
+    "minecraft": "*",
+    "java": ">=11"
+  }
+}
